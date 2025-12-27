@@ -3,19 +3,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
 body {
   scroll-behavior: smooth;
-  background: #f9f9f9;
-  color: #333;
+  background: #ffb2e8;
+  color: #6b025b;
 }
 
 /* HERO */
 .hero {
   height: 100vh;
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  background: linear-gradient(135deg, #6a11cb, #e21111);
   color: white;
   display: flex;
   flex-direction: column;
@@ -26,7 +26,8 @@ body {
 }
 
 .hero h1 {
-  font-size: 4rem;
+  font-size: 6rem;
+  font-family: 'Dancing Script', cursive;
 }
 
 .hero p {
@@ -39,138 +40,158 @@ body {
   margin-top: 20px;
   padding: 12px 25px;
   background: white;
-  color: #2575fc;
+  color: #f72020;
   text-decoration: none;
   border-radius: 30px;
   font-weight: bold;
   border: none;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .btn:hover {
-  background: #eee;
+  color: rgb(243,45,45);
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 8px 12px rgba(0,0,0,0.2);
 }
 
 /* MENSAGEM */
 .mensagem {
   padding: 80px 20px;
   text-align: center;
-  background: white;
+  background: linear-gradient(135deg, #9755de, #e21111e3);
+  border-radius: 15px;
+  margin: 20px auto;
+  max-width: 1000px;
 }
 
-.mensagem h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
+.mensagem h2 { font-size: 2rem; margin-bottom: 20px; }
 
 .mensagem #texto {
   margin-top: 15px;
   font-weight: bold;
-  color: #2575fc;
+  color: #ffffff;
+  opacity: 0;
+  transition: opacity 0.5s;
 }
+
+.mensagem #texto.ativo { opacity: 1; }
 
 /* TIMELINE */
 .timeline {
   padding: 80px 20px;
-  background: #f0f0f0;
+  background: linear-gradient(135deg, #9755de, #e21111e3);
   text-align: center;
+  border-radius: 15px;
+  margin: 20px auto;
+  max-width: 1000px;
+  position: relative;
 }
 
 .timeline .item {
   margin: 20px auto;
-  background: white;
+  background: #ffffff;
   padding: 20px;
   max-width: 400px;
   border-radius: 10px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
+  transform: rotate(-1deg);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.1);
 }
 
 .timeline .item:hover {
-  background: #f5f5f5;
+  transform: rotate(0deg) scale(1.05);
+  box-shadow: 0 10px 16px rgba(0,0,0,0.2);
 }
 
-.timeline span {
-  font-size: 1.5rem;
-}
+.timeline span { font-size: 1.5rem; }
 
 .detalhe {
   display: none;
   margin-top: 10px;
-  color: #666;
+  color: #9e30f1;
   font-size: 0.9rem;
 }
 
-.item.ativo .detalhe {
-  display: block;
+.item.ativo .detalhe { display: block; }
+
+/* POLAROIDAS */
+.polaroids {
+  position: absolute;
+  top: -60px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around; /* espalha igualmente */
+  z-index: 10;
+}
+
+.polaroids img {
+  width: 140px;
+  height: 130px;
+  object-fit: cover;
+  border: 8px solid white;
+  border-bottom: 20px solid white; /* borda maior embaixo */
+  border-radius: 5px;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+  transform: rotate(-5deg);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.polaroids img:nth-child(2) { transform: rotate(3deg); }
+.polaroids img:nth-child(3) { transform: rotate(-2deg); }
+.polaroids img:nth-child(4) { transform: rotate(5deg); }
+
+.polaroids img:hover {
+  transform: scale(1.1) rotate(0deg);
+  box-shadow: 0 10px 16px rgba(0,0,0,0.4);
 }
 
 /* FOOTER */
 footer {
-  background: #222;
-  color: white;
+  background: #9755de;
+  color: #f3e8ff;
   text-align: center;
-  padding: 15px;
+  padding: 20px;
+  font-weight: bold;
 }
 
-/* =======================
-   RESPONSIVIDADE
-======================= */
+/* WHATSAPP FLUTUANTE */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 3rem;
+  text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  z-index: 1000;
+}
 
-/* Telas menores que 600px */
+.whatsapp-float:hover {
+  transform: translateY(-10px) scale(1.2);
+  
+}
+
+/* RESPONSIVIDADE */
 @media (max-width: 600px) {
-  .hero h1 {
-    font-size: 2.5rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-
-  .mensagem, .timeline {
-    padding: 40px 10px;
-  }
-
-  .timeline .item {
-    max-width: 95%;
-    padding: 18px;
-  }
-
-  .timeline span {
-    font-size: 1.4rem;
-  }
-
-  .mensagem h2 {
-    font-size: 1.5rem;
-  }
-
-  .btn {
-    padding: 10px 20px;
-    font-size: 0.9rem;
-  }
+  .hero h1 { font-size: 2.5rem; }
+  .hero p { font-size: 1rem; }
+  .mensagem, .timeline { padding: 40px 10px; }
+  .timeline .item { max-width: 95%; padding: 18px; }
+  .polaroids img { width: 60px; height: 60px; border-bottom: 12px solid white; }
+  .timeline span { font-size: 1.4rem; }
+  .mensagem h2 { font-size: 1.5rem; }
+  .btn { padding: 10px 20px; font-size: 0.9rem; }
 }
 
-/* Telas médias entre 601px e 900px */
 @media (max-width: 900px) and (min-width: 601px) {
-  .hero h1 {
-    font-size: 3.2rem;
-  }
-
-  .hero p {
-    font-size: 1.1rem;
-  }
-
-  .timeline .item {
-    max-width: 70%;
-    padding: 18px;
-  }
-
-  .timeline span {
-    font-size: 1.3rem;
-  }
-
-  .mensagem h2 {
-    font-size: 1.8rem;
-  }
+  .hero h1 { font-size: 3.2rem; }
+  .hero p { font-size: 1.1rem; }
+  .timeline .item { max-width: 70%; padding: 18px; }
+  .polaroids img { width: 70px; height: 70px; border-bottom: 16px solid white; }
+  .timeline span { font-size: 1.3rem; }
+  .mensagem h2 { font-size: 1.8rem; }
 }
