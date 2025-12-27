@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Laysa 💙</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <h1>Laysa 💙</h1>
+    <p>Esse site foi feito só pra você</p>
+    <a href="#mensagem" class="btn">Entrar na nossa história</a>
+  </section>
+
+  <!-- MENSAGEM -->
+  <section class="mensagem" id="mensagem">
+    <h2>Uma mensagem pra você</h2>
+    <p>
+      Eu não sou poeta, nem músico.<br>
+      Mas aprendi HTML, CSS e um pouco de JS só pra te fazer isso.<br>
+      Porque você é especial demais pra não virar código 💙
+    </p>
+
+    <button class="btn" onclick="mostrarMensagem()">
+      Clique aqui 💙
+    </button>
+
+    <p id="texto"></p>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="timeline" id="historia">
+    <h2>Nossa história</h2>
+
+    <div class="item" onclick="toggleItem(this)">
+      <span>📍</span>
+      <p>O dia em que tudo começou</p>
+      <small class="detalhe">
+        Desde esse dia, nada foi igual.
+      </small>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <span>💬</span>
+      <p>Nossas primeiras conversas</p>
+      <small class="detalhe">
+        Conversas que viraram rotina sem perceber.
+      </small>
+    </div>
+
+    <div class="item" onclick="toggleItem(this)">
+      <span>💖</span>
+      <p>Quando eu tive certeza</p>
+      <small class="detalhe">
+        Não foi de uma vez… foi ficando até virar certeza.
+      </small>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Feito com 💙 por Gustavo</p>
+  </footer>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+</body>
+</html>
